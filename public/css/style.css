@@ -1,0 +1,176 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #777;
+  line-height: 1.7;
+  padding: 10px 30px;
+}
+
+.header{
+  height: 95vh;
+  background-image:linear-gradient(to left top,
+    rgba(15, 76, 117, 0.8) ,
+    rgba(50, 130, 184, 0.8),
+    rgba(187, 225, 250, 0.8) ),
+     url(../img/hero.jpg);
+
+  background-position: top;
+  background-size: cover;
+
+  position: relative;
+}
+
+.logo-box{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  animation-name: moveleft;
+  animation-duration: 1s;
+
+}
+
+.logo:hover{
+  animation-name: fadein;
+  animation-duration: 1s;
+}
+
+.logo{
+  height: 25px;
+}
+
+.heading{
+  color: #fff;
+  text-transform: uppercase;
+
+}
+
+.heading__primary{
+  font-size: 60px;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 35px;
+
+  animation-duration: 1s;
+  animation-name: moveleft;
+
+  /*
+  animation-delay: 3s;
+  animation-illteration-count:3;
+  */
+}
+
+.heading__sub{
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  letter-spacing: 17.4px;
+  animation-duration: 1s;
+  animation-name: moveright;
+  margin-bottom: 60px;
+
+}
+
+.text-box{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+@keyframes moveleft {
+
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80%{
+    transform: translateX(10px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+@keyframes moveright {
+
+  0%{
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80%{
+    transform: translateX(-10px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0
+  }
+
+  100%{
+    opacity: 1
+  }
+
+}
+
+
+.btn:link,
+.btn:visited{
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+
+}
+
+.btn:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.3)
+}
+
+.btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+
+}
+
+.btn-white{
+  background-color: #fff;
+  color: #777
+}
+
+.container{
+  box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+  padding: 2rem 3rem;
+}

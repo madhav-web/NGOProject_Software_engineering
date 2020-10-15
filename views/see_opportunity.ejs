@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+        <title>Gareeb Log</title>
+    </head>
+    <body>
+        <header class="header">
+          <div class="logo-box">
+            <img src="img/logo-white.png" alt="logo" class="logo">
+          </div>
+          <div class="text-box">
+            <h1 class="heading">
+              <span class="heading__primary">See oppourtunities</span>
+              <span class="heading__sub">it is where it happens</span>
+            </h1>
+
+            <a href="#" class="btn btn-white">Discover More</a>
+
+          </div>
+        </header>
+        <div class="container mt-5">
+          <% y.forEach(function( eachPerson){ %>
+            <div class = "container mt-5">
+        <h1> <%= eachPerson.aname %>  </h1>
+        <h2 style="text-align:right;"> Organized by: -<%= eachPerson.aorganizer %> </h2><br>
+        <h4> About the opportunity: - <%= eachPerson.aneed %> </h4><br>
+        <h4> Start date <%= eachPerson.adate1 %> </h4> <h4 style="text-align:right;"> End date <%= eachPerson.adate2 %> </h4><br>
+        <h5> City: <%= eachPerson.acity %> </h5> <h5 style="text-align:right;"> EmailID: <%= eachPerson.aemail %> </h5><br>
+        <h5> Phone: <%= eachPerson.aphone %> </h5><h5 style="text-align:right;"> UniqueID of the opportunity <%= eachPerson.unique_id_opp %> </h5><br>
+        <button><a href="/register_opportunity/<%= eachPerson.unique_id_opp %>">Register</a></button>
+        <button><a href="/donate_opportunity1/<%= eachPerson.unique_id_opp %>">Donate</a></button>
+      </div>
+    <% }) %>
+        </div>
+
+    <a href="/">Return back to Homepage</a>
+    </body>
+    <script src="index.js"></script>
+</html>
