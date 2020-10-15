@@ -8,7 +8,8 @@
   "author": "Priyanshu and Madhav",
   "license": "ISC",
   "engine":{
-    "node": "14.2.0"
+    "node": "14.2.0",
+    "npm": "6.14.4"
   },
   "dependencies": {
     "@cloudant/cloudant": "^4.3.0",
