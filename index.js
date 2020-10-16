@@ -246,16 +246,35 @@ app.post("/register_opportunity", function(req, res){
 
 //Donate opportunity//
 let requestedPostIdx = [];
-app.get("/donate_opportunity1/:pos", function(req, res){
-  var id = req.params.pos;
+app.get("/donate_opportunity1/:posx", function(req, res){
+  var id = req.params.posx;
   res.sendFile(__dirname + '/webpages/donate_opportunity1.html');
-  requestedPostIdx.push(id);
+  var url = 'https://f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix:66909f1f607981fca7bf6adc19ab6289ff231cdf563562432b7b9530a2d6ef5b@f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix.cloudantnosqldb.appdomain.cloud';
+  var opportunities = require('silverlining')(url, 'opportunities');
+  var b = Number(id);
+  let ax = function(){
+    return opportunities.query({"unique_id_opp": b}).then(token => { return token});
+  }
+  ;(async() => {
+      try{
+        let userToken = await ax();
+        let x = await userToken[0].ano;
+        requestedPostIdx.push(x);
+        console.log(x);
+      }
+      catch (error) {
+        console.log('That did not go well.')
+        throw error
+}
+
+  })
+();
 });
 
 app.post("/donate_opportunity1", function(req, res){
   unique_user = req.body.unique_user;
-  var len = requestedPostIdx.length;
-  var fid = requestedPostIdx[len-2];
+  // var len = requestedPostIdx.length;
+  // var fid = requestedPostIdx[len-1];
   var url = 'https://f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix:66909f1f607981fca7bf6adc19ab6289ff231cdf563562432b7b9530a2d6ef5b@f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix.cloudantnosqldb.appdomain.cloud';
   var members = require('silverlining')(url, 'members');
   var b = Number(unique_user);
@@ -263,13 +282,12 @@ app.post("/donate_opportunity1", function(req, res){
     return members.query({"id": b}).then(token => { return token});
   }
   ;(async() => {
-
       let userToken = await a();
         if(userToken.length > 0){
-          res.sendFile(__dirname + '/webpages/donate_opportunity2.html');
+          res.redirect("/donate_opportunity2");
+          // res.render("donate_opportunity2.ejs", {xacc: fid});
         }
         else{
-          res.send("WRONG Unique code");
           var unique_numberx = "Your Unique Code is WRONG";
           res.render("adding_opportunities.ejs", {ejs: unique_numberx});
         }
@@ -278,19 +296,55 @@ app.post("/donate_opportunity1", function(req, res){
 
 });
 app.get("/donate_opportunity2", function(req, res){
-  res.sendFile(__dirname + '/webpages/donate_opportunity2.html');
+  var len = requestedPostIdx.length;
+  var fid = requestedPostIdx[len-1];
+  res.render("donate_opportunity2.ejs", {xacc: fid});
+});
+app.post("/donate_opportunity2", function(req, res){
+  var firstname = req.body.firstname;
+  var email = req.body.email;
+  var address = req.body.address;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  var cardname = req.body.cardname;
+  var cardnumber = req.body.cardnumber;
+  var expmonth = req.body.expmonth;
+  var expyear = req.body.expyear;
+  var cvv = req.body.cvv;
+  var price = req.body.price;
+  var len = requestedPostIdx.length;
+  var fid = requestedPostIdx[len-1];
+  var c = {
+    "firstname": firstname,
+    "email": email,
+    "address": address,
+    "city": city,
+    "state": state,
+    "zip": zip,
+    "cardname": cardname,
+    "cardnumber": cardnumber,
+    "expmonth": expmonth,
+    "expyear": expyear,
+    "cvv": cvv,
+    "price": price,
+    "Account_of_NGO": fid
+  }
+  var Cloudant = require('@cloudant/cloudant');
+      var cloudant = Cloudant('https://f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix:66909f1f607981fca7bf6adc19ab6289ff231cdf563562432b7b9530a2d6ef5b@f2092de2-3c88-49f9-8f7e-c70cb52bf7c2-bluemix.cloudantnosqldb.appdomain.cloud');
+      var donation = cloudant.db.use('donation');
+      donation.insert(c, function(err, body, header){
+        if (err){
+          return console.log('[donation].insert]', err.message);
+        }
+        else{
+          return console.log('Data has been uploaded successfully');
+        }
+      });
+      var unique_numberx = "Thanks for Donating Money to the NGO. God Bless You";
+      res.render("adding_opportunities.ejs", {ejs: unique_numberx});
 });
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-// let port = process.env.PORT;
-// if(port == null || port == ""){
-//   port = 3000;
-// }
-//
-// app.listen(port);
-// // Server Call //
-// app.listen(port, function(){
-//   console.log("Server is running successfully");
-// });

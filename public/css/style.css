@@ -11,10 +11,11 @@ Dark green: #28b485
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Sansita Swashed', cursive;
 }
 
 body{
-  font-family: "Lato", sans-serif;
+  font-family: 'Abril Fatface', cursive;
   font-size: 16px;
   font-weight: 400;
   color: #777;
@@ -23,6 +24,7 @@ body{
 }
 
 .header{
+  font-family: 'Sansita Swashed', cursive;
   height: 95vh;
   background-image:linear-gradient(to left top,
     rgba(15, 76, 117, 0.8) ,
@@ -37,6 +39,7 @@ body{
 }
 
 .logo-box{
+  font-family: 'Sansita Swashed', cursive;
   position: absolute;
   top: 40px;
   left: 40px;
@@ -46,21 +49,25 @@ body{
 }
 
 .logo:hover{
+  font-family: 'Sansita Swashed', cursive;
   animation-name: fadein;
   animation-duration: 1s;
 }
 
 .logo{
+  font-family: 'Sansita Swashed', cursive;
   height: 25px;
 }
 
 .heading{
+  font-family: 'Sansita Swashed', cursive;
   color: #fff;
   text-transform: uppercase;
 
 }
 
 .heading__primary{
+  font-family: 'Sansita Swashed', cursive;
   font-size: 60px;
   font-weight: 400;
   display: block;
@@ -76,6 +83,7 @@ body{
 }
 
 .heading__sub{
+  font-family: 'Sansita Swashed', cursive;
   font-size: 20px;
   font-weight: 700;
   display: block;
@@ -87,6 +95,7 @@ body{
 }
 
 .text-box{
+  font-family: 'Sansita Swashed', cursive;
   position: absolute;
   top: 40%;
   left: 50%;

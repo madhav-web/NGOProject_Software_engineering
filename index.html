@@ -5,13 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Omnifood is a premium food delivery service with the mission to bring affordable and healty meals to as many people as possible.">
 
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
-        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+
         <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
-        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+
         <title>NGO</title>
 
         <!--<link rel="apple-touch-icon" sizes="57x57" href="/resources/favicons/apple-touch-icon-57x57.png">
@@ -38,6 +43,69 @@
         <meta name="msapplication-config" content="/resources/favicons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
         <link rel="shortcut icon" href="/resources/favicons/favicon.ico">
+        <style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  overflow: hidden;
+  font-size: 0.65rem;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+</style>
 
     </head>
     <body>
@@ -47,15 +115,43 @@
                     <img src="resources/img/Asset%202(_1_).png" alt="Omnifood logo" class="logo">
                     <img src="resources/img/Asset%202(_1_).png" alt="Omnifood logo" class="logo-black">
                     <ul class="main-nav js--main-nav">
-                        <li><a href="#features">About Us</a></li>
-                        <li><a href="#works">How it works</a></li>
-                        <li><a href="#cities">Our cities</a></li>
-                        <!--<li><a href="#plans">Sign up</a></li> -->
-                        <li><a href="/register_taker">Register as User</a></li>
-                        <li><a href="/register_giver">Register as NGO</a></li>
-                        <li><a href="/see_opportunity">See Opportunities</a></li><br><br>
-                        <li><a href="/add_opportunity">Add Opportunities</a></li>
-                    </ul>
+                        <li><a href="#features" style="font-size: 0.85rem;">About Us</a></li>
+                        <li><a href="#works" style="font-size: 0.85rem;">How it works</a></li>
+                        <li><a href="#cities" style="font-size: 0.85rem;">Our cities</a></li>
+                        <li> <a href="/see_opportunity" style="font-size: 0.85rem;">See  Opportunities</a></li>
+                        <li> <a href="/add_opportunity" style="font-size: 0.85rem;">Add  Opportunities</a> </li>
+                  <li>  <div class="dropdown">
+  <button class="dropbtn" onclick="myFunction()"> Register
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+    <a href="/register_taker" style="font-size: 0.85rem;">Register as User</a>
+    <a href="/register_giver" style="font-size: 0.85rem;">Register as NGO</a>
+
+
+  </div>
+  </div>
+</div></li>
+</ul>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
+
+
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>
             </nav>

@@ -11,6 +11,73 @@
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
         <title>Gareeb Log</title>
+        <style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+</style>
     </head>
     <body>
       <header class="header">
@@ -23,7 +90,7 @@
             <span class="heading__sub">it is where it happens</span>
           </h1>
 
-          <a href="#" class="btn btn-white">Discover More</a>
+          <a href="/" class="btn btn-white">Discover More</a>
 
         </div>
       </header>
@@ -57,7 +124,45 @@
       </div>
       <div class="form-group">
         <label for="state">State</label>
-        <input type="text" required name="astate" id="state" class="form-control">
+        <label>Choose your state:</label>
+        <select required name="astate">
+      <option value="">------------Select State------------</option>
+      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Assam">Assam</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Chandigarh">Chandigarh</option>
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+      <option value="Daman and Diu">Daman and Diu</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Goa">Goa</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Lakshadweep">Lakshadweep</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Meghalaya">Meghalaya</option>
+      <option value="Mizoram">Mizoram</option>
+      <option value="Nagaland">Nagaland</option>
+      <option value="Orissa">Orissa</option>
+      <option value="Pondicherry">Pondicherry</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Sikkim">Sikkim</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Tripura">Tripura</option>
+      <option value="Uttaranchal">Uttaranchal</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="West Bengal">West Bengal</option>
+      </select>
       </div>
       <div class="form-group">
         <label for="pcode">Bank Account number</label>
@@ -77,7 +182,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary"name="button">Submit</button>
-      <a href="/">Return back to Homepage</a>
+      <button class="button button2"><a href="/">Return back to Homepage</a></button>
     </form>
   </div>
 
